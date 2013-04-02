@@ -16,6 +16,8 @@ end
 
 group :development, :test do
   gem 'parallel_tests'
+  gem 'cane'
+  gem 'brakeman', :require => false
 end
 
 group :test do

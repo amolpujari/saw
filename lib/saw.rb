@@ -6,16 +6,8 @@ require "saw/controller.rb"
 module Saw
   class Railtie < ::Rails::Railtie
     config.after_initialize do
-      class VisitsController < ApplicationController
-        def create
-          saw params[:doing]
-          head :ok
-        end
-      end
+      require "saw/visits_controller"
+      require "saw/user_addition"
     end
   end
 end
-
-
-
-

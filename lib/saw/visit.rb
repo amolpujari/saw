@@ -2,6 +2,8 @@ module Saw
   class Visit < ActiveRecord::Base
     default_scope order('id')
 
+    attr_accessible :user_id, :session_id, :remote_host
+
     has_many :hits
     belongs_to :user
 

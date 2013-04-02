@@ -22,7 +22,7 @@ module Saw
                               :session_id   => session_id,
                               :remote_host  => remote_host
 
-      hit = visit.hits.new    :url          => url,
+      hit = visit.hits.build  :url          => url,
                               :http_method  => http_method, 
                               :action       => action, 
                               :params       => params,

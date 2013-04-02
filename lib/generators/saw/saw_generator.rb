@@ -13,7 +13,7 @@ class SawGenerator < ActiveRecord::Generators::Base
   end
 
   def generate_migration
-    migration_template "saw_migration.rb.erb", "db/migrate/add_visits_and_hits}"
+    migration_template "saw_migration.rb.erb", "db/migrate/add_visits_and_hits"
   end
 
   def generate_routes

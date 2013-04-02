@@ -1,7 +1,7 @@
 require 'rails/generators/active_record'
 
 module Saw
-  module Generators
+  module Generator
     class Migration < ActiveRecord::Generators::Base
       desc "Create a migration to add saw-specific data. " +
            "Add tables visits and hits."

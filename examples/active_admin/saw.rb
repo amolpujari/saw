@@ -1,4 +1,4 @@
-ActiveAdmin.register Saw::Visit as: 'Visit' do
+ActiveAdmin.register Saw::Visit, as: 'Visit' do
   menu :parent => "Users"
   belongs_to :user, :optional => true
 
@@ -34,7 +34,7 @@ ActiveAdmin.register Saw::Visit as: 'Visit' do
   end
 end
 
-ActiveAdmin.register Saw::Hit as: 'Hit' do
+ActiveAdmin.register Saw::Hit, as: 'Hit' do
   menu :parent => "Users"
   belongs_to :visit, :optional => true
 

@@ -25,7 +25,7 @@ module Saw
       hit = visit.hits.build  :url          => url,
                               :http_method  => http_method, 
                               :action       => action, 
-                              :params       => params,
+                              :params       => params
 
       hit.note = doing
       hit.json_data = json_data

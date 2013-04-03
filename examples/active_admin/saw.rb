@@ -1,8 +1,8 @@
-ActiveAdmin.register Saw::Visit, as: 'Visit' do
+ActiveAdmin.register Visit do
   menu :parent => "Users"
   belongs_to :user, :optional => true
 
-  actions :all, :except => [:edit, :update]
+  actions :index, :show, :delete
 
   index do
     selectable_column
@@ -34,11 +34,11 @@ ActiveAdmin.register Saw::Visit, as: 'Visit' do
   end
 end
 
-ActiveAdmin.register Saw::Hit, as: 'Hit' do
+ActiveAdmin.register Hit do
   menu :parent => "Users"
   belongs_to :visit, :optional => true
 
-  actions :all, :except => [:edit, :update]
+  actions :index, :show, :delete
 
   index do
     selectable_column

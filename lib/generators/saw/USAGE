@@ -1,0 +1,10 @@
+Description:
+    Explain the generator
+
+Example:
+    rails generate saw Thing
+
+    This will create
+     db/migrate/XXXXXXXXXXXXXXXX_add_visits_and_hits.rb 
+     route  post "visits" => "visits#create", :defaults => { :format => "json"}
+

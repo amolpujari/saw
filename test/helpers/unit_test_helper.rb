@@ -25,13 +25,15 @@ ActionController::Base.logger = Logger.new(File.dirname(__FILE__) + "/controller
 
 load(schema_file) if File.exist?(schema_file)
 
-Test::Unit::TestCase.fixture_path = File.join(File.dirname(__FILE__), '..', 'fixtures')
-$:.unshift(Test::Unit::TestCase.fixture_path)
+if ActiveSupport::TestCase.method_defined?(:fixture_path)
+  Test::Unit::TestCase.fixture_path = File.join(File.dirname(__FILE__), '..', 'fixtures')
+  $:.unshift(Test::Unit::TestCase.fixture_path)
+end
 
 class Test::Unit::TestCase #:nodoc:
   # Turn off transactional fixtures if you're working with MyISAM tables in MySQL
-  self.use_transactional_fixtures = true
+  # self.use_transactional_fixtures = true
 
   # Instantiated fixtures are slow
-  self.use_instantiated_fixtures  = true
+  # self.use_instantiated_fixtures  = true
 end

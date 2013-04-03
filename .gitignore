@@ -17,3 +17,5 @@ test/version_tmp
 tmp
 *.log
 *.sqlite3
+.rvmrc
+

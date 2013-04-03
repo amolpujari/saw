@@ -14,8 +14,6 @@ else
   raise "Rails #{rails_version} is not supported yet"
 end
 
-group :test do
-  gem 'rspec-rails',    '~> 2.9.0'
-  gem 'database_cleaner'
-  gem 'shoulda-matchers'
+group :test do |variable|
+  gem 'sqlite3-ruby'
 end

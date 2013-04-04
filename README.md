@@ -20,9 +20,13 @@ Or install it yourself as:
 
     $ gem install saw
 
-And then install migration and route
+And then install 
 
     $ rails generate saw install
+
+Next
+
+    $ rake db:migrate
 
 ## Usage
 

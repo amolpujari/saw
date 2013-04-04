@@ -3,7 +3,7 @@ class Visit < ActiveRecord::Base
 
   attr_accessible :user_id, :session_id, :remote_host
 
-  has_many :hits
+  has_many :hits, :dependent => :destroy
   belongs_to :user
 
   def title

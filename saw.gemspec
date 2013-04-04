@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Saw::VERSION
   gem.authors       = ["Amol Pujari"]
   gem.email         = ["amolpujari@gmail.com"]
-  gem.description   = %q{User visits, hits tracking for Ruby on Rails}
-  gem.summary       = %q{I saw user doing blah blha blah}
+  gem.description   = %q{I saw user clicking on that button there.}
+  gem.summary       = %q{User visits, hits tracking for Ruby on Rails}
   gem.homepage      = %q{https://github.com/amolpujari/saw}
 
   gem.files         = `git ls-files`.split($/)
@@ -18,5 +18,4 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency("rails", ">= 3.0.0")
-  gem.add_development_dependency "rspec", "~> 2.6"
 end

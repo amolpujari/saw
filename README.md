@@ -2,9 +2,9 @@
 
 As a developer/admin, I saw user coming to registration page, with parameters. I saw user clking on "Connect". 
 
-`What the user might have done?` this is the common question developers do have while debugging any issue, going through logs checking for particular log statement ot request, checking for particular parameters, and then after spending an hour coming with a decision that user must have done this. Saw saves this hour, time spent on debugging and answering this question `What user might have done?`.
+`What the user might have done?` this is a common question developers do have while debugging any issue, going through the logs checking for particular log statement or request param, and then after spending an hour coming with a decision that user must have done this. Saw saves this hour, time spent on debugging and answering this question `What user might have done?`.
 
-This is one more way, one simple way I say, to track what user is doing.
+This is one more simply way to track what user is doing.
 
 ## Installation
 
@@ -30,7 +30,7 @@ And then install migration and route
 
 Or
 
-    saw 'viting details page', { :extra => 'something' } 
+    saw 'visiting details page', { :extra => 'something' } 
 
 Or
 
@@ -52,4 +52,3 @@ Or
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-

@@ -49,10 +49,27 @@ Or
         $.post("/visits", { doing: "clicked on 'Connect to your Device' " } );
         ....
         
-## Contributing
+Access users visits as
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+    visit = @user.visits.sample
+    visit.user_agent
+    visit.remote_host
+    visit.hits.map(&:note)
+    visit.lasts # => 00:12:45
+    visit.title # => 00:12:45 on Apr 14, 2013
+    visit.summary
+    
+    hit = visit.hits.sample
+    hit.note
+    hit.url
+    hit.http_method
+    hit.action
+    hit.json_data
+    hit.created_at
+
+A visit is not a single request made to the server but a session. Similalry a hit is not necessary to be a request hit.
+
+## Testing (TBD)
+
+    ruby test/saw.rb 
+

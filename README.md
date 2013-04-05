@@ -49,7 +49,7 @@ Or
         $.post("/visits", { doing: "clicked on 'Connect to your Device' " } );
         ....
         
-Access users visits as
+Access users' visits as
 
     visit = @user.visits.sample
     visit.user_agent
@@ -71,5 +71,5 @@ A visit is not a single request made to the server but a session. Similalry a hi
 
 ## Testing (TBD)
 
-    ruby test/saw.rb 
+    ruby test/saw_test.rb 
 

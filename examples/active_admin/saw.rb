@@ -2,13 +2,13 @@ ActiveAdmin.register Visit do
   menu :parent => "Users"
   belongs_to :user, :optional => true
 
-  actions :index, :show, :delete
+  actions :index, :show, :destroy
 
   index do
     selectable_column
 
     column :note do |resource|
-      resource.hits.first.note
+      resource.hits.first.note.html_safe
     end
 
     column "" do |resource|
@@ -36,7 +36,7 @@ end
 ActiveAdmin.register Hit do
   belongs_to :visit, :optional => true
 
-  actions :index, :show, :delete
+  actions :index, :show, :destroy
 
   index do
     selectable_column

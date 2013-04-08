@@ -2,10 +2,14 @@ ActiveAdmin.register Visit do
   menu :parent => "Users"
   belongs_to :user, :optional => true
 
-  actions :all, :except => [:edit, :update, :create]
+  actions :index, :show, :delete
 
   index do
     selectable_column
+
+    column :note do |resource|
+      resource.hits.first.note
+    end
 
     column "" do |resource|
       links = ''
@@ -30,19 +34,19 @@ ActiveAdmin.register Visit do
 end
 
 ActiveAdmin.register Hit do
-  menu :parent => "Users"
   belongs_to :visit, :optional => true
 
-  actions :all, :except => [:edit, :update, :create]
+  actions :index, :show, :delete
 
   index do
     selectable_column
-    column :note
-
-    column :action, :sortable => :action do |resource|
-      "#{resource.http_method} #{resource.action}"
-    end 
-
+    column "Time", :sortable => :created_at do |resource|
+      resource.created_at.strftime('%T %Z')
+    end
+    column :note do |resource|
+      resource.note.html_safe
+    end
+    
     default_actions
   end
 end

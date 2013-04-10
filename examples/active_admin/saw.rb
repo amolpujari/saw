@@ -11,12 +11,9 @@ ActiveAdmin.register Visit do
       resource.hits.first.note.html_safe
     end
 
-    column "" do |resource|
-      links = ''
-      links << link_to("#{resource.hits.count} hits", admin_visit_hits_path(resource))
-      links << " by "
-      links << link_to("#{resource.user.username}", admin_user_path(resource.user))
-      links.html_safe
+    column :user
+    column :hits do |resource|
+      link_to("#{resource.hits.count}", admin_visit_hits_path(resource))
     end
 
     column :user_agent
@@ -31,9 +28,16 @@ ActiveAdmin.register Visit do
 
     default_actions
   end
+
+  filter :user_username, :as => :string
+  filter :user_agent
+  filter :remote_host
+  filter :created_at
 end
 
 ActiveAdmin.register Hit do
+  menu false
+  
   belongs_to :visit, :optional => true
 
   actions :index, :show, :destroy

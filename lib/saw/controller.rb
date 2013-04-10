@@ -20,7 +20,8 @@ module Saw
 
       visit ||= Visit.create  :user_id      => user_id,
                               :session_id   => session_id,
-                              :remote_host  => remote_host
+                              :remote_host  => remote_host,
+                              :user_agent   => user_agent
 
       hit = visit.hits.build  :url          => url,
                               :http_method  => http_method, 

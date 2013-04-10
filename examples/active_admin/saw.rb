@@ -1,7 +1,6 @@
 ActiveAdmin.register Visit do
   menu :parent => "Users"
   belongs_to :user, :optional => true
-
   actions :index, :show, :destroy
 
   index do
@@ -37,20 +36,20 @@ end
 
 ActiveAdmin.register Hit do
   menu false
-  
   belongs_to :visit, :optional => true
-
-  actions :index, :show, :destroy
+  actions :index, :show
 
   index do
     selectable_column
-    column "Time", :sortable => :created_at do |resource|
-      resource.created_at.strftime('%T %Z')
-    end
+    column :after
     column :note do |resource|
       resource.note.html_safe
     end
-    
     default_actions
   end
+
+  filter :note
+  filter :visit, :as => :select, :collection => proc { params[:visit_id] ? Visit.find(params[:visit_id]).user.visits : Visit.scoped }
+  filter :url
+  filter :created_at
 end

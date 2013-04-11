@@ -1,6 +1,6 @@
 # Saw
 
-{<img src="https://secure.travis-ci.org/amolpujari/saw.png?branch=master" />} {<img src="https://codeclimate.com/badge.png" />} {<img src="https://gemnasium.com/amolpujari/saw.png" />}
+<img src="https://secure.travis-ci.org/amolpujari/saw.png?branch=master" /> <img src="https://codeclimate.com/badge.png" /> <img src="https://gemnasium.com/amolpujari/saw.png" />
 
 As a developer/admin, I saw user coming to registration page, with parameters. I saw user clking on "Connect". 
 

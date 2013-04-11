@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gemspec
 
-require File.expand_path('test/support/detect_rails_version', File.dirname(__FILE__))
+require File.expand_path('spec/support/detect_rails_version', File.dirname(__FILE__))
 
 rails_version = detect_rails_version
 gem 'rails', rails_version
@@ -14,6 +14,8 @@ else
   raise "Rails #{rails_version} is not supported yet"
 end
 
-group :test do |variable|
-  gem 'sqlite3-ruby'
+group :test do
+  gem 'parallel_tests'
+  gem 'rspec-rails',     '~> 2.9.0'
+  gem 'sqlite3'
 end

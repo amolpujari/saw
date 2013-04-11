@@ -1,17 +1,12 @@
 require "bundler/gem_tasks"
 require 'rake'
-require 'rake/testtask'
 require 'rake/rdoctask'
+require 'rspec/core/rake_task'
 
-desc 'Default: run unit tests.'
-task :default => :test
+desc 'Default: run spec.'
+task :default => :spec
 
-desc 'Test the saw plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
-end
+RSpec::Core::RakeTask.new('spec') 
 
 desc 'Generate documentation for the saw plugin.'
 Rake::RDocTask.new(:rdoc) do |rdoc|

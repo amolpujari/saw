@@ -1,6 +1,6 @@
 # Saw
 
-{<img src="https://secure.travis-ci.org/amolpujari/saw.png?branch=master" />}[http://travis-ci.org/amolpujari/saw] {<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/amolpujari/saw] {<img src="https://gemnasium.com/amolpujari/saw.png" />}[https://gemnasium.com/amolpujari/saw]
+{<img src="https://secure.travis-ci.org/amolpujari/saw.png?branch=master" />} {<img src="https://codeclimate.com/badge.png" />} {<img src="https://gemnasium.com/amolpujari/saw.png" />}
 
 As a developer/admin, I saw user coming to registration page, with parameters. I saw user clking on "Connect". 
 

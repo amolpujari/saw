@@ -1,5 +1,7 @@
 # Saw
 
+{<img src="https://secure.travis-ci.org/amolpujari/saw.png?branch=master" />}[http://travis-ci.org/amolpujari/saw] {<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/amolpujari/saw] {<img src="https://gemnasium.com/amolpujari/saw.png" />}[https://gemnasium.com/amolpujari/saw]
+
 As a developer/admin, I saw user coming to registration page, with parameters. I saw user clking on "Connect". 
 
 `What the user might have done?` this is a common question developers do have while debugging any issue, going through the logs checking for particular log statement or request param, and then after spending an hour coming with a decision that user must have done this. Saw saves this hour, time spent on debugging and answering this question `What user might have done?`.
@@ -69,7 +71,5 @@ Access users' visits as
 
 A visit is not a single request made to the server but a session. Similalry a hit is not necessary to be a request hit.
 
-## Testing (TBD)
-
-    ruby test/saw_test.rb 
+## Testing (in progress)
 

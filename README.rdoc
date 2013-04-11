@@ -1,4 +1,4 @@
-# Saw
+= Saw
 
 {<img src="https://secure.travis-ci.org/amolpujari/saw.png?branch=master" />}[http://travis-ci.org/amolpujari/saw] {<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/amolpujari/saw] {<img src="https://gemnasium.com/amolpujari/saw.png" />}[https://gemnasium.com/amolpujari/saw]
 
@@ -8,7 +8,7 @@ As a developer/admin, I saw user coming to registration page, with parameters. I
 
 This is one more simply way to track what user is doing.
 
-## Installation
+== Installation
 
 Add this line to your application's Gemfile:
 
@@ -30,7 +30,7 @@ Next
 
     $ rake db:migrate
 
-## Usage
+== Usage
 
     before_filter :saw
 
@@ -40,7 +40,7 @@ Or
 
 Or
 
-    # in views
+    = in views
     
     <button id="button-retry" onclick="open_pop_up_form();" class="mybutton medium green">
       Connect to your Device
@@ -57,8 +57,8 @@ Access users' visits as
     visit.user_agent
     visit.remote_host
     visit.hits.map(&:note)
-    visit.lasts # => 00:12:45
-    visit.title # => 00:12:45 on Apr 14, 2013
+    visit.lasts = => 00:12:45
+    visit.title = => 00:12:45 on Apr 14, 2013
     visit.summary
     
     hit = visit.hits.sample
@@ -71,5 +71,5 @@ Access users' visits as
 
 A visit is not a single request made to the server but a session. Similalry a hit is not necessary to be a request hit.
 
-## Testing (in progress)
+== Testing (in progress)
 

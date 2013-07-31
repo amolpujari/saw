@@ -12,7 +12,7 @@ This is one more simply way to track what user is doing.
 
 Add this line to your application's Gemfile:
 
-    gem 'saw'
+    gem 'saw', :git => "git://github.com/amolpujari/saw.git", :branch => 'roost'
 
 And then execute:
 

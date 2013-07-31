@@ -32,6 +32,8 @@ Next
 
 == Usage
 
+    define visit_source in ApplicationController which should return a string saying the source of this visit
+
     before_filter :saw
 
 Or
@@ -56,20 +58,22 @@ Access users' visits as
     visit = @user.visits.sample
     visit.user_agent
     visit.remote_host
-    visit.hits.map(&:note)
+    visit.source
+    visit.links.map(&:note)
     visit.lasts = => 00:12:45
     visit.title = => 00:12:45 on Apr 14, 2013
     visit.summary
     
-    hit = visit.hits.sample
-    hit.note
-    hit.url
-    hit.http_method
-    hit.action
-    hit.json_data
-    hit.created_at
+    link = visit.links.sample
+    link.note
+    link.url
+    link.http_method
+    link.action
+    link.server_name
+    link.json_data
+    link.created_at
 
-A visit is not a single request made to the server but a session. Similalry a hit is not necessary to be a request hit.
+A visit is not a single request made to the server but a session. Similalry a link is not necessary to be a request link.
 
 == Testing (in progress)
 

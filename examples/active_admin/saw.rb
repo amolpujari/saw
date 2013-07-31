@@ -7,15 +7,16 @@ ActiveAdmin.register Visit do
     selectable_column
 
     column :note do |resource|
-      resource.hits.first.note.html_safe
+      resource.links.first.note.html_safe
     end
 
     column :user
-    column :hits do |resource|
-      link_to("#{resource.hits.count}", admin_visit_hits_path(resource))
+    column :links do |resource|
+      link_to("#{resource.links.count}", admin_visit_links_path(resource))
     end
 
     column :user_agent
+    column :source
     column :remote_host
 
     column :starting, :sortable => :created_at do |resource|
@@ -28,19 +29,20 @@ ActiveAdmin.register Visit do
     default_actions
   end
 
-  filter :user_username, :as => :string
+  filter :source
   filter :user_agent
   filter :remote_host
   filter :created_at
 end
 
-ActiveAdmin.register Hit do
+ActiveAdmin.register Link do
   menu false
   belongs_to :visit, :optional => true
   actions :index, :show
 
   index do
     selectable_column
+    column :server_name
     column :after
     column :note do |resource|
       resource.note.html_safe
@@ -49,6 +51,7 @@ ActiveAdmin.register Hit do
   end
 
   filter :note
+  filter :server_name
   filter :visit, :as => :select, :collection => proc { params[:visit_id] ? Visit.find(params[:visit_id]).user.visits : Visit.scoped }
   filter :url
   filter :created_at

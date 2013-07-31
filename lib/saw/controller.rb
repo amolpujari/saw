@@ -12,25 +12,28 @@ module Saw
       user_agent  = request.env["HTTP_USER_AGENT"]
       url         = request.fullpath
       http_method = request.method
+      server_name = request.server_name
       action      = "#{controller_name}##{action_name}"
       doing       = doing.to_s.strip
       doing       = action if doing.blank?
 
       visit = Visit.where('user_id = ? and session_id = ? ', user_id, session_id).first
 
-      visit ||= Visit.create  :user_id      => user_id,
-                              :session_id   => session_id,
-                              :remote_host  => remote_host,
-                              :user_agent   => user_agent
+      visit ||= Visit.create   :user_id      => user_id,
+                               :session_id   => session_id,
+                               :remote_host  => remote_host,
+                               :user_agent   => user_agent, 
+                               :source       => ( defined?(visit_source) ? visit_source : "")
 
-      hit = visit.hits.build  :url          => url,
-                              :http_method  => http_method, 
-                              :action       => action, 
-                              :params       => params
+      link = visit.links.build :url          => url,
+                               :http_method  => http_method, 
+                               :action       => action, 
+                               :params       => params,
+                               :server_name  => server_name
 
-      hit.note = doing
-      hit.json_data = json_data
-      hit.save!
+      link.note = doing
+      link.json_data = json_data
+      link.save!
 
     end
   end

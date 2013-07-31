@@ -1,7 +1,7 @@
 require "saw/version"
 require "saw/util.rb"
 require "saw/visit.rb"
-require "saw/hit.rb"
+require "saw/link.rb"
 
 module Saw
   class Railtie < ::Rails::Railtie

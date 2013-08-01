@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :visits
-  has_many :links, :through => :visits
+  has_many :track_visits
+  has_many :track_links, :through => :track_visits
 end

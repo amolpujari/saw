@@ -1,4 +1,4 @@
-class VisitsController < ApplicationController
+class TrackVisitsController < ApplicationController
   def create
     saw params[:doing]
     head :ok

@@ -1,22 +1,22 @@
 class AddVisitsAndHits < ActiveRecord::Migration
   def change
-    create_table :visits do |t|
+    create_table :track_visits do |t|
       t.integer   :user_id
       t.string    :session_id
       t.string    :user_agent
-      t.string    :source
-      t.string    :remote_host
+      t.string    :visit_source
+      t.string    :remote_ip
       t.datetime  :created_at
     end
 
-    add_index :visits, [:user_id, :session_id]
-    add_index :visits, :user_id
+    add_index :track_visits, [:user_id, :session_id]
+    add_index :track_visits, :user_id
     
-    create_table :links do |t|
-      t.integer   :visit_id
+    create_table :track_links do |t|
+      t.integer   :track_visit_id
       t.string    :url
       t.string    :server_name
-      t.string    :http_method
+      t.string    :method
       t.string    :action
       t.text      :params  
       t.string    :note
@@ -24,6 +24,6 @@ class AddVisitsAndHits < ActiveRecord::Migration
       t.datetime  :created_at
     end
 
-    add_index :links, :visit_id
+    add_index :track_links, :track_visit_id
   end
 end

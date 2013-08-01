@@ -32,13 +32,13 @@ Next
 
 == Usage
 
-    define visit_source in ApplicationController which should return a string saying the source of this visit
+    define track_visit_visit_source in ApplicationController which should return a string saying the visit_source of this track_visit
 
     before_filter :saw
 
 Or
 
-    saw 'visiting details page', { :extra => 'something' } 
+    saw 'track_visiting details page', { :extra => 'something' } 
 
 Or
 
@@ -50,30 +50,30 @@ Or
     
     <script type="text/javascript">
       function open_pop_up_form(){
-        $.post("/visits", { doing: "clicked on 'Connect to your Device' " } );
+        $.post("/track_visits", { doing: "clicked on 'Connect to your Device' " } );
         ....
         
-Access users' visits as
+Access users' track_visits as
 
-    visit = @user.visits.sample
-    visit.user_agent
-    visit.remote_host
-    visit.source
-    visit.links.map(&:note)
-    visit.lasts = => 00:12:45
-    visit.title = => 00:12:45 on Apr 14, 2013
-    visit.summary
+    track_visit = @user.track_visits.sample
+    track_visit.user_agent
+    track_visit.remote_ip
+    track_visit.visit_source
+    track_visit.track_links.map(&:note)
+    track_visit.lasts = => 00:12:45
+    track_visit.title = => 00:12:45 on Apr 14, 2013
+    track_visit.summary
     
-    link = visit.links.sample
-    link.note
-    link.url
-    link.http_method
-    link.action
-    link.server_name
-    link.json_data
-    link.created_at
+    track_link = track_visit.track_links.sample
+    track_link.note
+    track_link.url
+    track_link.method
+    track_link.action
+    track_link.server_name
+    track_link.json_data
+    track_link.created_at
 
-A visit is not a single request made to the server but a session. Similalry a link is not necessary to be a request link.
+A track_visit is not a single request made to the server but a session. Similalry a track_link is not necessary to be a request track_link.
 
 == Testing (in progress)
 

@@ -1,9 +1,9 @@
-class Visit < ActiveRecord::Base
+class TrackVisit < ActiveRecord::Base
   default_scope order('id')
 
-  attr_accessible :user_id, :session_id, :remote_host, :user_agent, :source
+  attr_accessible :user_id, :session_id, :remote_ip, :user_agent, :visit_source
 
-  has_many :links, :dependent => :destroy
+  has_many :track_links, :dependent => :destroy
   belongs_to :user
 
   def title
@@ -20,11 +20,11 @@ class Visit < ActiveRecord::Base
   end
 
   def starts_with
-    links.first
+    track_links.first
   end
 
   def ends_with
-    links.last
+    track_links.last
   end
 
   def lasts

@@ -1,19 +1,24 @@
 class AddVisitsAndHits < ActiveRecord::Migration
   def change
-    create_table :track_visits do |t|
-      t.integer   :user_id
+    create_table :track_visits, :id => false do |t|
+      t.column    :id,      'INT UNSIGNED NOT NULL AUTO_INCREMENT, PRIMARY KEY (id)'
+      t.column    :user_id, 'INT UNSIGNED'
+
       t.string    :session_id
       t.string    :user_agent
       t.string    :visit_source
       t.string    :remote_ip
+
       t.datetime  :created_at
     end
 
     add_index :track_visits, [:user_id, :session_id]
     add_index :track_visits, :user_id
     
-    create_table :track_links do |t|
-      t.integer   :track_visit_id
+    create_table :track_links, :id => false do |t|
+      t.column    :id,       'INT UNSIGNED NOT NULL AUTO_INCREMENT, PRIMARY KEY (id)'
+      t.column    :visit_id, 'INT UNSIGNED'
+
       t.string    :url
       t.string    :server_name
       t.string    :method
@@ -21,6 +26,7 @@ class AddVisitsAndHits < ActiveRecord::Migration
       t.text      :params  
       t.string    :note
       t.text      :json_data 
+
       t.datetime  :created_at
     end
 

@@ -2,7 +2,7 @@ class TrackLink < ActiveRecord::Base
   default_scope order('id')
   serialize :json_data, JSON  
   attr_accessible :url, :method, :action, :params, :server_name
-  belongs_to :track_visit
+  belongs_to :track_visit, :foreign_key => :visit_id
 
   def last_track_link
     track_visit.track_links.where(' track_links.id < ? ', id).last

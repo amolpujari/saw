@@ -1,6 +1,6 @@
 class Hit < ActiveRecord::Base
   serialize :json_data, JSON  
-  attr_accessible :url, :http_method, :action, :params
+  attr_accessible :url, :http_method, :action, :params, :visit_id, :note, :json_data
   belongs_to :visit
 
   def last_hit

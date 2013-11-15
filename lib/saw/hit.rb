@@ -15,7 +15,11 @@ class Hit < ActiveRecord::Base
     Saw::Util.time_diff visit.starts_with.created_at, created_at
   end
 
+  def user
+    visit and visit.user
+  end
+
   def user_visits
-    visit.user.visits
+    user and user.visits
   end
 end

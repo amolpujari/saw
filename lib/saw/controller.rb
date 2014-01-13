@@ -1,6 +1,6 @@
 module Saw
   module Controller
-    def saw doing=nil, json_data=nil
+    def saw doing=nil, json_data=nil, associated_object=nil
       user_id     = current_user ? current_user.id : nil
       session_id  = request.session_options[:id]
       remote_host = request.remote_ip
@@ -13,6 +13,12 @@ module Saw
       doing       = action if doing.blank?
       visit_id    = nil
 
+      associated_id, associated_type = nil
+      if associated_object and associated_object.is_a? ActiveRecord::Base
+        associated_id   = associated_object.id
+        associated_type = associated_object.class.name
+      end
+
       if user_id
         visit = Visit.where('user_id = ? and session_id = ? ', user_id, session_id).first 
 
@@ -24,13 +30,15 @@ module Saw
         visit_id = visit.id
       end
 
-      hit = Hit.create :visit_id     => visit_id,
-                       :url          => url,
-                       :http_method  => http_method, 
-                       :action       => action, 
-                       :params       => params,
-                       :note         => doing,
-                       :json_data    => json_data
+      hit = Hit.create :visit_id        => visit_id,
+                       :url             => url,
+                       :http_method     => http_method, 
+                       :action          => action, 
+                       :params          => params,
+                       :note            => doing,
+                       :json_data       => json_data,
+                       :associated_type => associated_type,
+                       :associated_id   => associated_id
     end
   end
 end

@@ -9,6 +9,7 @@ module Saw
       require "saw/user_addition"
       require "saw/controller.rb"
       require "saw/visits_controller"
+      require "saw/active_record_base"
     end
   end
 end

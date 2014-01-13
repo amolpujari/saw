@@ -13,6 +13,13 @@ module Saw
       doing       = action if doing.blank?
       visit_id    = nil
 
+      if json_data and json_data.is_a? ActiveRecord::Base
+        associated_object = json_data
+        json_data = nil
+      end
+
+      associated_object ||= controller_name.classify.constantize.find params[:id] rescue nil
+
       associated_id, associated_type = nil
       if associated_object and associated_object.is_a? ActiveRecord::Base
         associated_id   = associated_object.id

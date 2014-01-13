@@ -16,9 +16,5 @@ class Hit < ActiveRecord::Base
     Saw::Util.time_diff visit.starts_with.created_at, created_at
   end
 
-  def self.associated_types 
-    @@associated_types ||= select("distinct associated_type").order(" associated_type ").map(&:associated_type).compact
-  end
-
   belongs_to :associated, polymorphic: true
 end

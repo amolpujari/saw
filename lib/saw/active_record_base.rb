@@ -1,5 +1,5 @@
 module ActiveRecord
   class Base
-    has_many :hits :as => :associated
+    has_many :hits, :as => :associated
   end
 end

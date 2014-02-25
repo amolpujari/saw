@@ -7,6 +7,10 @@ class Hit < ActiveRecord::Base
     visit and visit.user
   end
 
+  def remote_host
+    visit and visit.remote_host
+  end
+
   def last_hit
     visit.hits.where(' hits.id < ? ', id).last
   end

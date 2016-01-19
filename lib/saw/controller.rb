@@ -27,25 +27,31 @@ module Saw
       end
 
       if user_id
-        visit = Visit.where('user_id = ? and session_id = ? ', user_id, session_id).first 
+        visit   = Visit.where('user_id = ? and session_id = ? ', user_id, session_id).first
+        visit ||= Visit.new
 
-        visit ||= Visit.create  :user_id      => user_id,
-                                :session_id   => session_id,
-                                :remote_host  => remote_host,
-                                :user_agent   => user_agent
+        visit.user_id     = user_id
+        visit.session_id  = session_id
+        visit.remote_host = remote_host
+        visit.user_agent  = user_agent
+        visit.user_id     = user_id
+
+        visit.save
 
         visit_id = visit.id
       end
 
-      hit = Hit.create :visit_id        => visit_id,
-                       :url             => url,
-                       :http_method     => http_method, 
-                       :action          => action, 
-                       :params          => params,
-                       :note            => doing,
-                       :json_data       => json_data,
-                       :associated_type => associated_type,
-                       :associated_id   => associated_id
+      hit = Hit.new
+      hit.visit_id        = visit_id
+      hit.url             = url
+      hit.http_method     = http_method,
+      hit.action          = action
+      hit.params          = params
+      hit.note            = doing
+      hit.json_data       = json_data
+      hit.associated_type = associated_type
+      hit.associated_id   = associated_id
+      hit.save
     end
   end
 end

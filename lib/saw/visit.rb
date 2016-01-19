@@ -1,12 +1,10 @@
 class Visit < ActiveRecord::Base
-  attr_accessible :user_id, :session_id, :remote_host, :user_agent
-
   has_many :hits, :dependent => :destroy
   belongs_to :user
 
   def title
     return unless user
-    
+
     user_name = ''
 
     %w(name first_name username email).each do |attr|
